@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--重要-->
+<mapper namespace="com.kynnnn.springcloud.mapper.DeptMapper">
+    <resultMap id="deptResultMap" type="Dept">
+        <!--<id property="deptNo" column="deptno"/>-->
+        <result property="deptNo" column="deptNo"/>
+        <result property="dname" column="dname"/>
+        <result property="dbSource" column="db_source"/>
+    </resultMap>
+
+
+    <insert id="add" parameterType="Dept">
+        insert into dept (dname,db_source) values (#{dname},database());
+    </insert>
+
+    <delete id="delete" parameterType="Long">
+        delete from dept where deptno=#{deptno};
+    </delete>
+
+    <update id="update" parameterType="Dept">
+        update dept set dname=#{dname} where deptno=#{deptno};
+    </update>
+
+    <select id="selectById" parameterType="Long" resultType="Dept" resultMap="deptResultMap">
+        select deptno,dname,db_source from dept where deptno=#{deptno};
+    </select>
+
+    <select id="selectAll" resultType="Dept" resultMap="deptResultMap">
+        select deptno,dname,db_source from dept;
+    </select>
+
+</mapper>
