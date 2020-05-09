@@ -10,6 +10,7 @@
     <modules>
         <module>springcloud-api</module>
         <module>springcloud-provider-dept-8001</module>
+        <module>springcloud-consumer-dept-80</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -21,11 +22,7 @@
 
     <dependencies>
 
-        <dependency>
-            <groupId>com.kynnnn</groupId>
-            <artifactId>springcloud-api</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
+
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
